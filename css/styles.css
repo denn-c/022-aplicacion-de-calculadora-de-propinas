@@ -1,0 +1,240 @@
+:root {
+  --Strong-cyan: hsl(172, 67%, 45%);
+
+  --Very-dark-cyan: hsl(183, 100%, 15%);
+  --Dark-grayish-cyan: hsl(186, 14%, 43%);
+  --Grayish-cyan: hsl(184, 14%, 56%);
+  --Light-grayish-cyan: hsl(185, 41%, 84%);
+  --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body {
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Light-grayish-cyan);
+  padding: 1rem;
+}
+.encabezado {
+  margin-bottom: 3em;
+}
+
+.contenedor {
+  background-color: var(--White);
+  display: flex;
+  gap: 2rem;
+  font-size: 16px;
+  max-width: 60em;
+  padding: 2rem;
+  color: var(--Dark-grayish-cyan);
+  border-radius: 1rem;
+}
+.entrada,
+.salida {
+  flex-basis: 50%;
+}
+
+.entrada {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.factura__titulo,
+.descuento__titulo,
+.persona__titulo {
+  margin-bottom: 0.5rem;
+  cursor: context-menu;
+}
+
+.factura,
+.persona,
+.descuento {
+  border: none;
+  padding: 0;
+  position: relative;
+}
+
+.factura__icono,
+.persona__icono {
+  position: absolute;
+  top: 0.9rem;
+  left: 1em;
+}
+
+.factura__entrada,
+.descuento__entrada,
+.persona__entrada {
+  width: 100%;
+  font-size: 24px;
+  text-align: end;
+  border: none;
+  background-color: var(--Very-light-grayish-cyan);
+  padding: 0.6rem;
+  border-radius: 3px;
+  color: var(--Very-dark-cyan);
+  /* border: 2px solid var(--Strong-cyan); */
+}
+
+.factura__entrada,
+.persona__entrada {
+  padding-left: 2rem;
+}
+
+.factura__entrada:focus,
+.descuento__entrada:focus,
+.persona__entrada:focus {
+  outline: 2px solid var(--Strong-cyan);
+}
+
+.factura__entrada::placeholder,
+.descuento__entrada::placeholder,
+.persona__entrada::placeholder {
+  color: var(--Grayish-cyan);
+}
+
+.factura__entrada--activo:focus,
+.descuento__entrada--activo:focus,
+.persona__entrada--activo:focus {
+  outline: none;
+}
+
+.factura__entrada--activo,
+.descuento__entrada--activo,
+.persona__entrada--activo {
+  box-shadow: 0px 0px 0px 2px rgb(248, 74, 74);
+}
+
+
+.descuento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+.descuento__valor {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+
+.descuento__valor:checked + .descuento__nombre {
+  background-color: var(--Strong-cyan);
+  color: var(--White);
+}
+
+.descuento__nombre {
+  background-color: var(--Very-dark-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 5px;
+  color: var(--White);
+}
+
+.descuento__nombre:hover {
+  background-color: var(--Light-grayish-cyan);
+  color: var(--Very-dark-cyan);
+}
+
+.salida {
+  background-color: var(--Very-dark-cyan);
+  padding: 2.5em;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.propina,
+.total {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1em);
+  align-items: center;
+  grid-gap: 0.3em;
+}
+
+.propina__titulo,
+.total__titulo {
+  color: var(--Very-light-grayish-cyan);
+  cursor: context-menu;
+}
+
+.propina__persona,
+.total__persona{
+  font-size: .9rem;
+  cursor: context-menu;
+}
+
+.propina__monto,
+.total__monto {
+  font-size: 3em;
+  grid-row: 1/3;
+  grid-column: 2/3;
+  margin: 0 auto;
+  color: var(--Strong-cyan);
+}
+.salida__resetear {
+  padding: .8rem;
+  border: none;
+  background-color: #0D686D;
+  text-transform: uppercase;
+  color: var(--Very-dark-cyan);
+  font-size: 1.3rem;
+  margin-top: 3em;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.salida__resetear--active{
+  background-color: var(--Strong-cyan);
+}
+
+.salida__resetear:hover{
+  background-color: var(--Light-grayish-cyan);
+}
+
+@media (max-width:700px) {
+  .encabezado{
+    margin-bottom: 1em;
+  }
+  .contenedor{
+    flex-direction: column;
+    max-width: 30em;
+  }
+
+  .salida{
+    gap: 2em;
+  }
+
+  .salida__resetear{
+    margin-top: 0;
+  }
+}
+@media (max-width:385px) {
+
+  body{
+    padding: .3rem;
+  }
+
+  .contenedor{
+    padding: 1rem;
+  }
+
+  .salida{
+    padding: 1.5em;
+  }
+
+  .propina__monto,
+  .total__monto{
+    font-size: 2em;
+  }
+}

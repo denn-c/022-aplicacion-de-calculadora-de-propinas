@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="asset/icon/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Aplicación de calculadora de propinas</title>
+  </head>
+  <body>
+    <header class="encabezado">
+      <img src="asset/images/logo.svg" alt="Logo" />
+    </header>
+    <main class="contenedor">
+      <div class="entrada">
+        <fieldset class="factura">
+          <legend class="factura__titulo">Factura</legend>
+          <img
+            src="asset/icon/icon-dollar.svg"
+            alt="Icono dólar"
+            class="factura__icono"
+          />
+          <input type="number" class="factura__entrada" placeholder="0" min="0.01" step="0.01" autofocus/>
+        </fieldset>
+        <fieldset class="descuento">
+          <legend class="descuento__titulo">Seleccione % de propina</legend>
+          
+          <input
+            type="radio"
+            class="descuento__valor"
+            id="5%"
+            name="porcentaje"
+            value="5"
+          />
+          <label for="5%" class="descuento__nombre">5%</label>
+          
+          <input
+            type="radio"
+            class="descuento__valor"
+            id="10%"
+            name="porcentaje"
+            value="10"
+          />
+          <label for="10%" class="descuento__nombre">10%</label>
+          
+          <input
+            type="radio"
+            class="descuento__valor"
+            id="15%"
+            name="porcentaje"
+            value="15"
+          />
+          <label for="15%" class="descuento__nombre">15%</label>
+          
+          <input
+            type="radio"
+            class="descuento__valor"
+            id="20%"
+            name="porcentaje"
+            value="20"
+          />
+          <label for="20%" class="descuento__nombre">20%</label>
+          
+          <input
+            type="radio"
+            class="descuento__valor"
+            id="50%"
+            name="porcentaje"
+            value="50"
+          />
+          <label for="50%" class="descuento__nombre">50%</label>
+          <input type="number" class="descuento__entrada" placeholder="Otro" max="100" min="0" step="1"/>
+        </fieldset>
+        <fieldset class="persona">
+          <legend class="persona__titulo">Número de personas</legend>
+          <img
+            src="asset/icon/icon-person.svg"
+            alt="Icono dólar"
+            class="persona__icono"
+          />
+          <input type="number" class="persona__entrada" placeholder="0" min="1" step="1"/>
+        </fieldset>
+      </div>
+      <div class="salida">
+        <div class="propina">
+          <p class="propina__titulo">Propina</p>
+          <p class="propina__persona">/ persona</p>
+          <p class="propina__monto">$0.00</p>
+        </div>
+        <div class="total">
+          <p class="total__titulo">Total</p>
+          <p class="total__persona">/ persona</p>
+          <p class="total__monto">$0.00</p>
+        </div>
+        <input type="reset" value="Reiniciar" class="salida__resetear"/>
+      </div>
+    </main>
+    <script src="js/javascript.js"></script>
+  </body>
+</html>
